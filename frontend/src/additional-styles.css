@@ -1,0 +1,7 @@
+/* Additional body styling to make content more visible */
+body {
+  background-color: #f3f4f6; /* light gray background */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
