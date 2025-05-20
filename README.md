@@ -101,27 +101,34 @@ chmod +x run.sh
 ```
 
 ### Manual Commands
+
 1. Start the backend server
+
 ```bash
 cd backend
 npm run start:dev
 ```
+
 2. Start the frontend development server
+
 ```bash
 cd frontend
 npm run dev
 ```
+
 3. Open your browser and navigate to http://localhost:5173.
 
 ## Project Structure
 
 ### Backend
+
 - `src/auth`: Authentication module
 - `src/users`: User management
 - `src/job-posts`: Job post generation and management
 - `src/config`: Application configuration
 
 ### Frontend
+
 - `src/components`: Reusable UI components
 - `src/pages`: Page components
 - `src/contexts`: React contexts
@@ -130,11 +137,14 @@ npm run dev
 - `src/utils`: Utility functions
 
 ### Troubleshooting
+
 If you encounter issues with the application:
 
 White Screen Issue: Check browser console for errors
 Type Import Errors: When using verbatimModuleSyntax in TypeScript config, use type-only imports:
+
 ```bash
+
 // Correct way to import types
 import type { AuthResponse } from './types';
 ```
@@ -142,10 +152,12 @@ import type { AuthResponse } from './types';
 ## API Documentation
 
 ### Authentication
+
 - `POST /api/auth/register`: Register a new user
 - `POST /api/auth/login`: Login a user
 
 ### Job Posts
+
 - `GET /api/job-posts`: Get all job posts
 - `GET /api/job-posts/:id`: Get a specific job post
 - `GET /api/job-posts/my-posts`: Get current user's job posts
@@ -153,6 +165,20 @@ import type { AuthResponse } from './types';
 - `POST /api/job-posts/generate`: Generate a job post using AI
 - `PUT /api/job-posts/:id`: Update a job post
 - `DELETE /api/job-posts/:id`: Delete a job post
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Job Post Creation
+
+![Job Post Creation](screenshots/create-job-post.png)
+
+### Generated Results
+
+![Generated Results](screenshots/generated-result.png)
 
 ## License
 
