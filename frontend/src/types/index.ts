@@ -7,7 +7,12 @@ export interface User {
 
 export interface AuthResponse {
   access_token: string;
-  user: User;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    role: string;
+  };
 }
 
 export interface LoginRequest {

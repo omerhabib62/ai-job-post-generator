@@ -24,44 +24,44 @@ export class AuthService {
 
   async register(registerDto: RegisterDto) {
     const { name, email, password } = registerDto;
-    
+
     // Check if user already exists
     const existingUser = await this.usersService.findByEmail(email);
     if (existingUser) {
       throw new Error('User with this email already exists');
     }
-    
+
     // Create new user
     const user = await this.usersService.create(
-      name, 
-      email, 
-      password, 
-      UserRole.USER
+      name,
+      email,
+      password,
+      UserRole.USER,
     );
-    
+
     return this.generateToken(user);
   }
 
   async login(loginDto: LoginDto) {
     const { email, password } = loginDto;
-    
+
     const user = await this.validateUser(email, password);
     if (!user) {
       throw new Error('Invalid credentials');
     }
-    
+
     return this.generateToken(user);
   }
 
   private generateToken(user: any) {
-    const payload = { 
-      email: user.email, 
+    const payload = {
+      email: user.email,
       sub: user._id,
       role: user.role,
     };
-    
+
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: this.jwtService.sign(payload), // Returns access_token
       user: {
         id: user._id,
         name: user.name,
